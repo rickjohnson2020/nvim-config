@@ -98,6 +98,17 @@ vim.g.have_nerd_font = false
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+-- tab settings
+vim.opt.tabstop = 4 -- タブ文字の幅を4に設定
+vim.opt.shiftwidth = 4 -- 自動インデントで挿入される空白の幅を4に設定
+vim.opt.softtabstop = 4 -- 挿入モードでのタブ入力時の幅を4に設定
+vim.opt.expandtab = false -- タブ文字をスペースに変換しない
+
+-- indent settings
+vim.opt.showmatch = true -- 対応する括弧をハイライト
+vim.opt.autoindent = true -- 自動インデントを有効にする
+vim.opt.cindent = true -- C言語スタイルのインデントを有効にする
+
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
@@ -189,6 +200,11 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- delete command without yank
+vim.keymap.set('n', 'x', '"_x', { noremap = true, silent = true })
+vim.keymap.set('n', 'd', '"_d', { noremap = true, silent = true })
+vim.keymap.set('n', 'D', '"_D', { noremap = true, silent = true })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
